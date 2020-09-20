@@ -4,8 +4,8 @@ import Aux from '../../../hoc/AuxHoc/AuxHoc';
 import Backdrop from '../Backdrop/Backdrop';
 
 class Modal extends Component {
-    shouldComponentUpdate (nexProps, nextState) {
-        return nexProps.show !== this.props.show;
+    shouldComponentUpdate (nextProps, nextState) {
+        return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
     }
 
     componentDidUpdate () {
@@ -13,6 +13,7 @@ class Modal extends Component {
     }
 
     render() {
+        console.log(this.props);
         return(
             <Aux>
                 <Backdrop show={this.props.show} close={this.props.modalClosed} />
